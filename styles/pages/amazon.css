@@ -117,6 +117,9 @@
   margin-bottom: 8px;
   opacity: 0;
 }
+.adding-to-cart {
+  opacity: 1;
+}
 
 .added-to-cart img {
   height: 20px;
