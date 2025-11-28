@@ -62,6 +62,8 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productHTML;
 
+  let timeoutId;
+
   function updateCartQuantity(productId) {
     let cartQuantity = 0;
 
@@ -73,13 +75,13 @@ document.querySelector('.js-products-grid').innerHTML = productHTML;
 
       addedCart.classList.add('adding-to-cart');
 
+      clearTimeout(timeoutId);
+
       timeoutId = setTimeout(() => {
         addedCart.classList.remove('adding-to-cart');
       }, 2000)
       document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
   }
-
-let timeoutId;
 
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
