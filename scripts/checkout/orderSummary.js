@@ -127,12 +127,14 @@ export function renderOrderSummary() {
 
           container.remove()
 
-          updateCartQuantity('.js-header-cart-quantity', '.js-cart-quantity1');
+          renderOrderSummary()
           renderPaymentSummary()
+          updateCartQuantity('.js-header-cart-quantity', '.js-cart-quantity1');
       });
   });
 
       updateCartQuantity('.js-header-cart-quantity', '.js-cart-quantity1');
+
 
       document.querySelectorAll('.js-update-link')
       .forEach((link) => {
@@ -166,9 +168,9 @@ export function renderOrderSummary() {
 
           container.querySelector(`.js-quantity-label`).innerHTML = quantityValue;
           
-          updateCartQuantity('.js-header-quantity')
-
-          renderPaymentSummary();
+          renderOrderSummary()
+          renderPaymentSummary()
+          updateCartQuantity('.js-header-cart-quantity', '.js-cart-quantity1');
 
           quantityInput.value = '';
       }
@@ -181,6 +183,7 @@ export function renderOrderSummary() {
           const container = link.closest('.cart-item-container');
 
           saveQuantity(container, productId)
+
         })
       })
 

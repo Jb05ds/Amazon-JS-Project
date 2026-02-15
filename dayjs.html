@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jb" id="fayb"></div>
+    
+
+    <script src='https://unpkg.com/dayjs@1.11.10/dayjs.min.js'></script>
+    <script>
+        const today = dayjs();
+
+        const fiveDays = 5
+
+        const nextFive = today.add(fiveDays, 'days');
+
+        const dateString = nextFive.format('MMMM, D');
+
+        console.log(dateString)
+
+        const nextMonth = today.add(1, 'month');
+
+        const monthly = nextMonth.format('MMMM, D')
+
+        console.log(monthly)
+
+        const lastMonth = today.subtract(1, 'month');
+
+        const lastMonthly = lastMonth.format('MMMM, D');
+
+        console.log(lastMonthly)
+
+        const weekFormat = lastMonth.format('dddd')
+        console.log(weekFormat)
+
+        function isWeekend(date) {
+                const dateFormat = date.format('dddd')
+            if (dateFormat === 'Saturday' || dateFormat === 'Sunday'){
+                return dateFormat
+            }
+        }
+        const tryWeekends = today.add(1, 'days')
+
+        console.log(isWeekend(tryWeekends))
+
+        
+    </script>
+</body>
+</html>

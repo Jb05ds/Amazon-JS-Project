@@ -80,6 +80,7 @@ export function updateQuantity(productId, newQuantity) {
   });
 
   saveToStorage();
+
 }
 
 export function updateDeliveryOption(productId, deliveryOptionId) {
