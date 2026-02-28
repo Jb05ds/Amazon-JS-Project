@@ -37,16 +37,22 @@
         console.log(weekFormat)
 
         function isWeekend(date) {
-                const dateFormat = date.format('dddd')
-            if (dateFormat === 'Saturday' || dateFormat === 'Sunday'){
-                return dateFormat
+                const day = date.format('dddd')
+                return day === 'Saturday' || day === 'Sunday';
+            }
+
+        let date = today;
+        let remainingDays = shippingDays;
+
+        while (remainingDays > 0) {
+            date = date.add(1 , 'days');
+
+            if (!isWeekend(date)) {
+                remainingDays--;
             }
         }
-        const tryWeekends = today.add(1, 'days')
+          
 
-        console.log(isWeekend(tryWeekends))
-
-        
     </script>
 </body>
 </html>

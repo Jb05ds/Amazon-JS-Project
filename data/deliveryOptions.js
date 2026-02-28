@@ -28,13 +28,22 @@ export function getDeliveryOption(deliveryOptionId) {
 
 export function calculateDeliveryDate(deliveryOption) {
         const today = dayjs();
-  
-        const deliveryDate = today.add(
-          deliveryOption.deliveryDays,
-          'days'
-        );
+        
+        let date = today;
+        let remainingDays = deliveryOption.deliveryDays;
 
-        const dateString = deliveryDate.format('dddd, MMMM D');
+        function isWeekend(date) {
+                const day = date.format('dddd')
+                return day === 'Saturday' || day === 'Sunday';
+            }
 
-        return dateString;
+        while (remainingDays > 0) {
+          date = date.add(1, 'day');
+
+            if (!isWeekend(date)) {
+                remainingDays--;
+            }
+        }
+
+        return date.format('dddd, MMMM D');
 }
